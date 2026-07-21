@@ -1,0 +1,8 @@
+.phone-scroll {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 34px;
+  background: #111;
+}

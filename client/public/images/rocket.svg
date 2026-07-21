@@ -1,0 +1,38 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rocketBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8B5CF6"></stop>
+      <stop offset="100%" stop-color="#4F46E5"></stop>
+    </linearGradient>
+
+    <linearGradient id="rocketWing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F97316"></stop>
+      <stop offset="100%" stop-color="#FB923C"></stop>
+    </linearGradient>
+
+    <linearGradient id="rocketFire" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FACC15"></stop>
+      <stop offset="100%" stop-color="#EF4444"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Body -->
+  <ellipse cx="60" cy="50" rx="20" ry="35" fill="url(#rocketBody)"></ellipse>
+
+  <!-- Window -->
+  <circle cx="60" cy="45" r="8" fill="#E0E7FF"></circle>
+  <circle cx="60" cy="45" r="4" fill="#6366F1"></circle>
+
+  <!-- Left Wing -->
+  <path d="M40 70 L20 90 L45 80 Z" fill="url(#rocketWing)"></path>
+
+  <!-- Right Wing -->
+  <path d="M80 70 L100 90 L75 80 Z" fill="url(#rocketWing)"></path>
+
+  <!-- Bottom -->
+  <rect x="50" y="80" width="20" height="10" rx="5" fill="#1F2937"></rect>
+
+  <!-- Fire -->
+  <path d="M60 90 C50 105, 70 105, 60 120" fill="url(#rocketFire)"></path>
+
+</svg>
