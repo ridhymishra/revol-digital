@@ -16,9 +16,9 @@ const FAQSection = lazy(() => import("./pages/FAQSection"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Footer = lazy(() => import("./pages/Footer"));
 
-const Services = lazy(() => import("./pages/Services"));
-const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
-const ContactPage = lazy(() => import("./pages/ContactPage"));
+import Services from "./pages/Services";
+import PortfolioPage from "./pages/PortfolioPage";
+import ContactPage from "./pages/ContactPage";
 
 export default function App() {
   return (
