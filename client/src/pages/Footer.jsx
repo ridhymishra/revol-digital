@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaWhatsapp, FaEnvelope, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const year = new Date().getFullYear();
@@ -101,20 +101,6 @@ export default function Footer() {
       <FaWhatsapp
          size={42}
          className="text-green-400 hover:text-green-300 transition duration-200"
-      />
-      </a>
-      
-      {/* Instagram */}
-      <a
-        href="https://www.instagram.com/revoldigital_/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Follow us on Instagram"
-        className="text-pink-500 hover:text-pink-400 transition duration-300 hover:scale-105"
-      >
-      <FaInstagram
-        size={42}
-        className="transition duration-200"
       />
       </a>
       
