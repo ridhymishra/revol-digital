@@ -43,7 +43,7 @@ const handleSubmit = async (e) => {
 
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbyhxG8aQzLmeNa8HwCMcKInSNum8W4eD4FqTKUpf_h2I3zkJhC0aQrunND7_YPPXJvk/exec",
+      "https://script.google.com/macros/s/AKfycbzXG91N7xyjoh7x-YxSgB4xyQCCDDilT8C27u_aJR7xBaK1eFQuvvZf5Xmya8l8Wseg/exec",
       {
         method: "POST",
         body: JSON.stringify(formData),
