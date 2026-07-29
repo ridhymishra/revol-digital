@@ -25,23 +25,14 @@ export default function Navbar() {
     <img
       src="/images/icon.webp"
       alt="Revol Digital logo"
-      width="48"
-      height="48"
+      width="49"
+      height="49"
       loading="eager"
       fetchPriority="high"
       decoding="async"
       className="h-10 lg:h-12 w-auto translate-y-[2px]"
     />
 
-    <div className="flex items-center leading-none">
-      <span className="text-white font-semibold text-sm md:text-lg">
-        REVOL
-      </span>
-
-      <span className="text-blue-500 font-semibold text-sm md:text-lg ml-1">
-         DIGITAL
-      </span>
-   </div>
   </Link>
 
     {/* DESKTOP MENU */}

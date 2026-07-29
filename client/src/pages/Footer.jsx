@@ -32,16 +32,6 @@ export default function Footer() {
               decoding="async"
               className="h-10 lg:h-12 w-auto translate-y-[2px]"
            />
-
-          <div className="flex items-center">
-            <span className="text-white font-semibold text-xl">
-               REVOL
-            </span>
-
-            <span className="text-blue-400 font-semibold text-xl ml-1">
-               DIGITAL
-            </span>
-         </div>
         </div>
 
             <p className="text-sm text-blue-100 mt-4 leading-relaxed max-w-sm">
