@@ -33,7 +33,7 @@ export default function Pricing() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-black to-black" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-14 md:py-24">
+      <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-24">
 
         {/* HEADER */}
         <motion.div

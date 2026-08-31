@@ -72,13 +72,13 @@ const handleSubmit = async (e) => {
 };
   return (
     <>
-    <section id="contact" className="relative pt-5 md:pt-2 pb-16 md:pb-20 bg-black text-white overflow-hidden">
+    <section id="contact" className="relative pt-16 md:pt-24 pb-16 md:pb-24 bg-black text-white overflow-hidden">
 
       {/* GRID BACKGROUND */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-black to-black" />
 
-      <div className="relative max-w-7xl mx-auto px-6 mt-12 md:mt-16">
+      <div className="relative max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
         <motion.div

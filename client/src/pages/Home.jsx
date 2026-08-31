@@ -202,12 +202,12 @@ export default function Home() {
 
             <motion.div
               variants={item(shouldReduceMotion)}
-              className="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-3 text-sm text-white/70"
+              className="mt-6 flex flex-wrap gap-2.5 text-sm text-white/70"
             >
-              <span>📈 SEO-Optimized Structure</span>
-              <span>🎯 Conversion-Focused Design</span>
-              <span>⚡ Fast Loading Experience</span>
-              <span>🔐 Reliable & Secure Code</span>
+              <span className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">📈 SEO-Optimized Structure</span>
+              <span className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">🎯 Conversion-Focused Design</span>
+              <span className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">⚡ Fast Loading Experience</span>
+              <span className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">🔐 Reliable & Secure Code</span>
             </motion.div>
 
             <motion.div

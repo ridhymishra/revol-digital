@@ -68,7 +68,7 @@ export default function Portfolio() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(37,99,235,0.2),transparent_50%)]" />
 
       {/* HEADER */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-16 sm:pt-28 pb-12 sm:pb-20">
+      <section className="relative max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-12 sm:pb-16">
 
        {/* Section Label */}
         <div className="mb-6 flex items-center gap-4">
@@ -118,7 +118,7 @@ export default function Portfolio() {
         </AnimatePresence>
       </div>
 
-     <div className="flex justify-center gap-3 mt-10 pb-10">
+     <div className="flex justify-center gap-3 mt-10 pb-16 md:pb-24">
       {projects.map((_, index) => (
       <button
         key={index}

@@ -36,7 +36,7 @@ export default function ServicesPreview() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(37,99,235,0.2),transparent_50%)]" />
 
       {/* HERO */}
-      <section id="services" className="relative max-w-7xl mx-auto px-6 pt-20 pb-20 text-center">
+      <section id="services" className="relative max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-20 text-center">
         <span className="inline-block px-4 py-1 text-sm rounded-full bg-white/10 border border-white/20 mb-6">
           🚀 Web Development Services
         </span>
@@ -55,7 +55,7 @@ export default function ServicesPreview() {
       </section>
 
       {/* SERVICES */}
-      <section className="relative max-w-7xl mx-auto px-6 pb-20">
+      <section className="relative max-w-7xl mx-auto px-6 pb-16 md:pb-24">
         <motion.div
           variants={container}
           initial="hidden"
