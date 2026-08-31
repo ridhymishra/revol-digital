@@ -1,0 +1,28 @@
+# Revol Digital
+
+> Revol Digital builds fast, SEO-optimized React websites for businesses, startups and professionals. Founded by Ridhy Mishra, a full-stack web developer, the studio delivers custom web development, responsive design and performance-focused solutions using React, Node.js, Python and Tailwind CSS.
+
+Revol Digital designs and develops custom React websites focused on converting visitors into customers through clean code, modern UI/UX and long-term maintainability. Every project is discussed and scoped before development starts, with transparent, defined pricing.
+
+## Services
+- Full-Stack Website Development — end-to-end frontend, backend and database architecture
+- Landing Page Engineering — conversion-focused pages for campaigns and offers
+- SEO & Performance Optimization — Core Web Vitals, technical SEO and page speed
+- UI/UX Engineering — clean, intuitive interface design
+- Website Redesign — modernizing outdated websites
+- Long-Term Support — ongoing maintenance, security and updates
+
+## Pricing
+- Starter Website: from ₹8,999 (custom responsive UI, SEO-friendly structure, 3–4 day delivery)
+- Business Website: from ₹18,999 (conversion-focused UI/UX, CMS/admin panel, analytics, 7–10 day delivery)
+- Custom Web Application: custom quote (React frontend with Node.js/Python backend, API integrations)
+
+## Pages
+- [Home](https://revoldigital.com/): Overview, hero pitch and homepage sections (services, portfolio, about, pricing, FAQ, contact)
+- [Services](https://revoldigital.com/services): Full breakdown of web development services and process
+- [Portfolio](https://revoldigital.com/portfolio): Case studies and example projects
+- [Contact](https://revoldigital.com/contact): Get in touch / request a project quote
+
+## Contact
+- Email: contact@revoldigital.com
+- Availability: Worldwide, remote

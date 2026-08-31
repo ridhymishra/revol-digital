@@ -9,5 +9,15 @@ export default defineConfig({
     cssCodeSplit: true,
     sourcemap: false,
     minify: "esbuild",
+    chunkSizeWarningLimit: 900,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom", "react-router-dom"],
+          "vendor-motion": ["framer-motion"],
+          "vendor-three": ["three", "@react-three/fiber", "@react-three/drei"],
+        },
+      },
+    },
   },
 });

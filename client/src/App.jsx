@@ -1,10 +1,13 @@
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import SmoothScroll from "./components/SmoothScroll";
+import ScrollProgress from "./components/ScrollProgress";
+import PageLoader from "./components/PageLoader";
 
 const Home = lazy(() => import("./pages/Home"));
 const ServicesPreview = lazy(() => import("./pages/ServicesPreview"));
@@ -15,56 +18,98 @@ const Pricing = lazy(() => import("./pages/Pricing"));
 const FAQSection = lazy(() => import("./pages/FAQSection"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Footer = lazy(() => import("./pages/Footer"));
+const Services = lazy(() => import("./pages/Services"));
+const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
 
-import Services from "./pages/Services";
-import PortfolioPage from "./pages/PortfolioPage";
-import ContactPage from "./pages/ContactPage";
+function PageTransition({ children }) {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) return children;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {/* HOME PAGE */}
+        <Route
+          path="/"
+          element={
+            <PageTransition>
+              <Home />
+              <ServicesPreview />
+              <Portfolio />
+              <WhyChooseMe />
+              <About />
+              <Pricing />
+              <FAQSection />
+              <Contact />
+              <Footer />
+            </PageTransition>
+          }
+        />
+
+        {/* SERVICES FULL PAGE */}
+        <Route
+          path="/services"
+          element={
+            <PageTransition>
+              <Services />
+            </PageTransition>
+          }
+        />
+        {/* PORTFOLIO PAGE */}
+        <Route
+          path="/portfolio"
+          element={
+            <PageTransition>
+              <PortfolioPage />
+            </PageTransition>
+          }
+        />
+        {/* Contact PAGE */}
+        <Route
+          path="/contact"
+          element={
+            <PageTransition>
+              <ContactPage />
+            </PageTransition>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 export default function App() {
   return (
     <Router>
      <ScrollToTop />
      <SmoothScroll />
-   
-      <div className="w-full overflow-x-hidden">
-        
-        <Navbar />
-  
-        <Suspense
-          fallback={
-             <div className="min-h-screen flex items-center justify-center bg-black">
-              <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
-             </div>
-          }
-          >
-         <Routes>
-          {/* HOME PAGE */}
-          <Route
-            path="/"
-            element={
-              <>
-                <Home />
-                <ServicesPreview/>
-                <Portfolio />
-                <WhyChooseMe />
-                <About />
-                <Pricing />
-                <FAQSection />
-                <Contact />
-                <Footer />
-              </>
-            }
-          />
+     <ScrollProgress />
 
-          {/* SERVICES FULL PAGE */}
-          <Route path="/services" element={<Services />} />
-          {/* PORTFOLIO PAGE */}
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          {/* Contact PAGE */}
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
+      <div className="w-full overflow-x-hidden">
+
+        <Navbar />
+
+        <Suspense fallback={<PageLoader />}>
+          <AnimatedRoutes />
         </Suspense>
-   
+
       </div>
     </Router>
   );

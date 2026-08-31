@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 /* ================= ANIMATION ================= */
 
 const container = {
@@ -73,20 +72,6 @@ const handleSubmit = async (e) => {
 };
   return (
     <>
-     <Helmet>
-     <title>Revol Digital</title>
-
-     <meta
-        name="description"
-        content="Contact Revol Digital for website development, React applications, business websites, landing pages and custom web solutions."
-     />
-
-    <meta
-       name="keywords"
-       content="website developer, react developer, business website, landing page development, custom web application"
-    />
-    </Helmet>
-    
     <section id="contact" className="relative pt-5 md:pt-2 pb-16 md:pb-20 bg-black text-white overflow-hidden">
 
       {/* GRID BACKGROUND */}
@@ -107,9 +92,9 @@ const handleSubmit = async (e) => {
             Contact
           </span>
 
-         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+         <h2 className="text-4xl md:text-5xl font-bold leading-tight">
              Build a Website That <span className="text-blue-500">Attracts Customers</span> and Grows Your Business
-         </h1>
+         </h2>
 
           <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
             Looking for a responsive business website, portfolio, landing page or custom web application? 
@@ -231,8 +216,8 @@ const handleSubmit = async (e) => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full mt-2 rounded-lg bg-white text-blue-700 font-semibold py-3 hover:bg-gray-100 transition"
-                > 
+                  className="btn-premium w-full mt-2 rounded-lg bg-white text-blue-700 font-semibold py-3 hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(255,255,255,0.25)] transition disabled:opacity-70 disabled:hover:translate-y-0"
+                >
                   {loading ? "Sending..." : "Send Enquiry"}
                 </button>
               </form>

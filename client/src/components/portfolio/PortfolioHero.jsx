@@ -5,8 +5,8 @@ import {
   PenTool,
   Globe,
 } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import LazyVideo from "../LazyVideo";
 
 const services = [
   {
@@ -37,32 +37,6 @@ const phoneVideos = [
 const PortfolioHero = () => {
   return (
     <>
-      {/* SEO */}
-      <Helmet>
-        <title>
-           Portfolio | Revol Digital - Web Design & Development Projects
-        </title>
-
-        <meta
-          name="description"
-          content="Explore web design, landing page, business website and UI/UX projects built by Revol Digital using modern design and development practices."
-        />
-
-        <meta property="og:title" content="Premium Portfolio Showcase" />
-
-        <meta
-          property="og:description"
-          content="Creative interfaces and premium digital experiences designed for modern brands."
-        />
-         
-        <meta
-          property="og:url"
-          content="https://revoldigital.com/portfolio"
-        />
-
-        <meta property="og:type" content="website" />
-      </Helmet>
-
       <section className="relative overflow-hidden bg-[#050816] min-h-screen pt-32 md:pt-20 lg:pt-24 pb-10 md:pb-24">
 
         {/* PREMIUM PORTFOLIO BACKGROUND */}
@@ -455,13 +429,8 @@ const PortfolioHero = () => {
       >
   
       {/* Website Video */}
-      <video
+      <LazyVideo
            src={video}
-           autoPlay
-           muted
-           loop
-           playsInline
-           preload="metadata"
            className="
                   w-full
                   h-full

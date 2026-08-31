@@ -1,14 +1,16 @@
+import { lazy, Suspense } from "react";
 import PortfolioHero from "../components/portfolio/PortfolioHero";
 import FeaturedProjects from "../components/portfolio/FeaturedProjects";
 import PortfolioStats from "../components/portfolio/PortfolioStats";
-import Footer from "./Footer";
-import { Helmet } from "react-helmet-async"; 
+import { Helmet } from "react-helmet-async";
+
+const Footer = lazy(() => import("./Footer"));
 
 const PortfolioPage = () => {
   return (
     <>
     <Helmet>
-      <title>Portfolio | Revol Digital</title>
+      <title>Portfolio | Revol Digital - Web Design & Development Projects</title>
 
       <meta
         name="description"
@@ -41,14 +43,27 @@ const PortfolioPage = () => {
         property="og:url"
         content="https://revoldigital.com/portfolio"
     />
+
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://revoldigital.com/" },
+          { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://revoldigital.com/portfolio" },
+        ],
+      })}
+    </script>
     </Helmet>
       <PortfolioHero />
 
       <FeaturedProjects />
 
       <PortfolioStats />
-      
-      <Footer/>
+
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
 
     </>
   );

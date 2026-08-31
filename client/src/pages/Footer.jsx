@@ -8,7 +8,9 @@ export default function Footer() {
   return (
     
     <footer className="relative bg-gradient-to-br from-[#020617] via-[#07111F] to-[#102A5C] text-white overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/70 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px overflow-hidden">
+        <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-blue-400 to-transparent animate-shimmer-line" />
+      </div>
       <div className="relative max-w-7xl mx-auto px-6 pt-10 md:pt-10 pb-4 md:pb-6">
 
         {/* MAIN GRID */}
@@ -86,20 +88,21 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="text-green-400 hover:text-green-300 transition duration-300 hover:scale-105"
+          className="btn-premium text-green-400 hover:text-green-300 transition duration-300 hover:-translate-y-1 hover:drop-shadow-[0_0_14px_rgba(74,222,128,0.5)]"
       >
       <FaWhatsapp
          size={42}
          className="text-green-400 hover:text-green-300 transition duration-200"
       />
       </a>
-      
+
       {/* Email */}
       <a
          href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@revoldigital.com"
          target="_blank"
          rel="noopener noreferrer"
          aria-label="Send an email"
+         className="btn-premium hover:-translate-y-1 hover:drop-shadow-[0_0_14px_rgba(96,165,250,0.5)] transition duration-300"
       >
       <FaEnvelope
          size={42}

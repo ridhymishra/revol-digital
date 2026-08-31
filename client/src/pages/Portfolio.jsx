@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const projects = [
@@ -105,7 +105,17 @@ export default function Portfolio() {
       {/* PROJECTS */}
     <section className="overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <ProjectRow {...projects[activeSlide]} />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeSlide}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <ProjectRow {...projects[activeSlide]} />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
      <div className="flex justify-center gap-3 mt-10 pb-10">

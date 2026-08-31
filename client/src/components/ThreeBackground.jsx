@@ -41,6 +41,10 @@ export default function ThreeBackground() {
   typeof window !== "undefined" ? window.innerWidth < 768 : false
   );
 
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
  useEffect(() => {
   const handleResize = () => {
     setIsMobile(window.innerWidth < 768);
@@ -55,7 +59,7 @@ export default function ThreeBackground() {
   };
 }, []);
 
-if (isMobile) {
+if (isMobile || prefersReducedMotion) {
   return null;
 }
 
