@@ -6,11 +6,16 @@
 // visitors with JS, while crawlers/bots that don't execute JS (many AEO
 // bots, link-preview scrapers, and Googlebot's first crawl pass) get
 // real text instead of an empty <div id="root">.
-import { chromium } from "playwright";
-import { preview } from "vite";
+//
+// This whole script is best-effort: if anything here fails (e.g. a host
+// environment that can't run headless Chromium), it logs a warning and
+// exits 0 so `npm run build` — and the deploy — still succeeds with the
+// plain client-rendered build, same as before this script existed.
+import { execSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { preview } from "vite";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, "dist");
@@ -34,6 +39,15 @@ async function scrollThroughPage(page) {
 }
 
 async function run() {
+  // No --with-deps: that shells out to apt-get, which needs root and isn't
+  // available on most CI/build hosts (that's what broke the first attempt
+  // of this on Vercel). Just the browser binary — if the host is missing a
+  // shared library Chromium needs to launch, the outer try/catch in main()
+  // below catches that too and degrades gracefully.
+  execSync("npx --yes playwright install chromium", { stdio: "inherit" });
+
+  const { chromium } = await import("playwright");
+
   const server = await preview({
     preview: { port: 4174, strictPort: true },
   });
@@ -74,6 +88,6 @@ async function run() {
 }
 
 run().catch((err) => {
-  console.error("Prerender failed:", err);
-  process.exit(1);
+  console.warn("Prerender skipped (build continues with the plain client-rendered output):", err?.message || err);
+  process.exit(0);
 });
