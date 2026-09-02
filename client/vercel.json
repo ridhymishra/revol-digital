@@ -1,5 +1,18 @@
 {
+  "cleanUrls": true,
   "rewrites": [
+    {
+      "source": "/services",
+      "destination": "/services/index.html"
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/portfolio/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact/index.html"
+    },
     {
       "source": "/((?!assets/).*)",
       "destination": "/index.html"

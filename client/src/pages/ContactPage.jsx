@@ -79,6 +79,28 @@ export default function ContactPage() {
           name="description"
           content="Contact Revol Digital for React websites, business websites, landing pages and web development services."
         />
+
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://revoldigital.com/contact" />
+
+        <meta property="og:title" content="Contact | Revol Digital" />
+        <meta
+          property="og:description"
+          content="Contact Revol Digital for React websites, business websites, landing pages and web development services."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://revoldigital.com/contact" />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://revoldigital.com/" },
+              { "@type": "ListItem", position: 2, name: "Contact", item: "https://revoldigital.com/contact" },
+            ],
+          })}
+        </script>
       </Helmet>
 
     <section className="relative overflow-hidden bg-[#030712] py-32">
