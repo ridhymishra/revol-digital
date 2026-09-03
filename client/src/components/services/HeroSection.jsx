@@ -67,7 +67,7 @@ export default function ServiceHero() {
            View My Work →
          </Link>
 
-         <Link to="/Contact#contactform" className="border border-white/20 px-6 py-3 rounded-lg hover:bg-white/10
+         <Link to="/contact#contactform" className="border border-white/20 px-6 py-3 rounded-lg hover:bg-white/10
          ">
             Start a Project
          </Link>
@@ -88,7 +88,7 @@ export default function ServiceHero() {
        {[...services, ...services, ...services].map((service, index) => (
         <Link
               key={index}
-              to="/Contact#contactform"
+              to="/contact#contactform"
               className="relative w-[250px] h-[560px] rounded-[28px] overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.45)] group flex-shrink-0 cursor-pointer block"
         >
         

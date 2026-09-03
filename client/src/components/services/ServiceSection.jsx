@@ -236,7 +236,7 @@ export default function ServicesSection() {
                   </div>
 
                   {/* BUTTON */}
-                  <Link to="/Contact#contactform" className="mt-6 inline-flex items-center gap-2 text-indigo-400 hover:text-white transition-all duration-300 font-medium group/button">
+                  <Link to="/contact#contactform" className="mt-6 inline-flex items-center gap-2 text-indigo-400 hover:text-white transition-all duration-300 font-medium group/button">
 
                     Explore Service
 

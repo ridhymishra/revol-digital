@@ -213,7 +213,7 @@ export default function FAQSection() {
 
           <div className="flex justify-center md:justify-start">
             <Link
-               to="/Contact#contactform"
+               to="/contact#contactform"
                className="inline-block px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition font-medium"
             >
                 Contact Me

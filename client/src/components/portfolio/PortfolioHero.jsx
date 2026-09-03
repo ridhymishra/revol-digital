@@ -590,7 +590,7 @@ const PortfolioHero = () => {
 
                   </p>
 
-                  <Link to= "/Contact#contactform"
+                  <Link to="/contact#contactform"
                     className="
                       relative
                       z-10

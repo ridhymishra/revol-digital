@@ -104,7 +104,7 @@ export default function Pricing() {
               </ul>
 
               <Link
-                 to="/Contact#contactform"
+                 to="/contact#contactform"
                  className="mt-8 w-full rounded-lg bg-blue-600 hover:bg-blue-700 transition py-3 font-medium text-center block">
                 Launch My Website
               </Link>
@@ -136,7 +136,7 @@ export default function Pricing() {
               </ul>
 
               <Link
-                 to="/Contact#contactform"
+                 to="/contact#contactform"
                  className="mt-8 w-full rounded-lg bg-blue-600 hover:bg-blue-700 transition py-3 font-medium text-center block">
                 Free Project Discussion
               </Link>
@@ -176,7 +176,7 @@ export default function Pricing() {
               </ul>
 
               <Link
-                 to="/Contact#contactform"
+                 to="/contact#contactform"
                  className="mt-8 w-full rounded-lg bg-blue-600 hover:bg-blue-700 transition py-3 font-medium text-center block">
                 Discuss Your Project
               </Link>
