@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 /* ================= ANIMATION ================= */
 
@@ -49,9 +50,16 @@ export default function ServicesPreview() {
         </h2>
 
         <p className="mt-6 text-gray-400 max-w-2xl mx-auto">
-          Whether you're starting from scratch, improving an existing website, 
+          Whether you're starting from scratch, improving an existing website,
           or looking for long-term support, each service is focused on helping your business build a stronger online presence.
         </p>
+
+        <Link
+          to="/services"
+          className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 hover:border-blue-400/40 transition-all duration-300 font-medium"
+        >
+          View All Services →
+        </Link>
       </section>
 
       {/* SERVICES */}
