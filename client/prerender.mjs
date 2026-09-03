@@ -16,11 +16,20 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { preview } from "vite";
+import { SERVICES } from "./src/data/services.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, "dist");
 
-const ROUTES = ["/", "/services", "/portfolio", "/contact"];
+// Service page routes are derived from the same data file the app itself
+// renders from, so this list can't drift out of sync with what actually exists.
+const ROUTES = [
+  "/",
+  "/services",
+  "/portfolio",
+  "/contact",
+  ...SERVICES.map((s) => `/services/${s.slug}`),
+];
 
 async function scrollThroughPage(page) {
   // Every homepage/portfolio/services section reveals via framer-motion's

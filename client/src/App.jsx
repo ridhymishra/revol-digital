@@ -21,6 +21,7 @@ const Footer = lazy(() => import("./pages/Footer"));
 const Services = lazy(() => import("./pages/Services"));
 const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
+const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
 
 function PageTransition({ children }) {
   const shouldReduceMotion = useReducedMotion();
@@ -69,6 +70,15 @@ function AnimatedRoutes() {
           element={
             <PageTransition>
               <Services />
+            </PageTransition>
+          }
+        />
+        {/* INDIVIDUAL SERVICE PAGES */}
+        <Route
+          path="/services/:slug"
+          element={
+            <PageTransition>
+              <ServiceDetailPage />
             </PageTransition>
           }
         />

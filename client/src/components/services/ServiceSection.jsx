@@ -20,6 +20,7 @@ const services = [
     icon: <Code2 size={20} />,
     tags: ["Next.js", "React", "Tailwind"],
     className: "md:col-span-2",
+    slug: "web-development",
   },
 
   {
@@ -29,6 +30,7 @@ const services = [
     image:"/images/uiservicecard.webp",
     icon: <Palette size={20} />,
     tags: ["Figma", "UX", "Responsive"],
+    slug: "website-design",
   },
 
   {
@@ -39,6 +41,7 @@ const services = [
       "/images/seocardservice.webp",
     icon: <Rocket size={20} />,
     tags: ["Google Search", "Visibility", "Core Web Vitals"],
+    slug: "seo",
   },
 
   {
@@ -50,6 +53,7 @@ const services = [
     icon: <Database size={20} />,
     tags: ["REST API", "Integrations", "Database"],
     className: "md:col-span-2",
+    slug: "react-development",
   },
 
   {
@@ -61,6 +65,7 @@ const services = [
     icon: <ShoppingBag size={20} />,
     tags: ["Online Store", "Payments", "Shopping Experience"],
     className: "md:col-span-2",
+    slug: "ecommerce-development",
   },
 
   {
@@ -70,7 +75,7 @@ const services = [
     image:
       "/images/websiteservicecard.webp",
     icon: <ShieldCheck size={20} />,
-    tags: ["Hosting", "Security", "Support"], 
+    tags: ["Hosting", "Security", "Support"],
   },
 
 ];
@@ -236,7 +241,10 @@ export default function ServicesSection() {
                   </div>
 
                   {/* BUTTON */}
-                  <Link to="/contact#contactform" className="mt-6 inline-flex items-center gap-2 text-indigo-400 hover:text-white transition-all duration-300 font-medium group/button">
+                  <Link
+                    to={service.slug ? `/services/${service.slug}` : "/contact#contactform"}
+                    className="mt-6 inline-flex items-center gap-2 text-indigo-400 hover:text-white transition-all duration-300 font-medium group/button"
+                  >
 
                     Explore Service
 
