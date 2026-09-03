@@ -12,7 +12,7 @@
 // exits 0 so `npm run build` — and the deploy — still succeeds with the
 // plain client-rendered build, same as before this script existed.
 import { execSync } from "node:child_process";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { preview } from "vite";
@@ -30,6 +30,10 @@ const ROUTES = [
   "/contact",
   ...SERVICES.map((s) => `/services/${s.slug}`),
 ];
+
+function outPathFor(route) {
+  return route === "/" ? join(distDir, "index.html") : join(distDir, route.slice(1), "index.html");
+}
 
 async function scrollThroughPage(page) {
   // Every homepage/portfolio/services section reveals via framer-motion's
@@ -103,9 +107,7 @@ async function run() {
     await scrollThroughPage(page);
 
     const html = await page.content();
-    const outPath =
-      route === "/" ? join(distDir, "index.html") : join(distDir, route.slice(1), "index.html");
-    results.push({ route, outPath, html });
+    results.push({ route, outPath: outPathFor(route), html });
 
     await page.close();
   }
@@ -120,8 +122,30 @@ async function run() {
   }
 }
 
+// vercel.json rewrites /services, /portfolio, /contact and /services/:slug
+// straight to their prerendered file with no SPA fallback (that's what
+// makes invalid URLs correctly 404 instead of silently serving the
+// homepage). That means if prerendering fails and those files never get
+// created, every one of those routes 404s for real visitors too, not just
+// crawlers — confirmed as a live outage once already. So on any failure,
+// copy the plain (already client-renderable) index.html to every route's
+// expected path: rewrites still find a file, degrading to "same as before
+// this whole feature existed" instead of a hard 404.
+function writePlainFallback() {
+  const plainIndex = join(distDir, "index.html");
+  if (!existsSync(plainIndex)) return;
+  for (const route of ROUTES) {
+    if (route === "/") continue;
+    const outPath = outPathFor(route);
+    mkdirSync(dirname(outPath), { recursive: true });
+    copyFileSync(plainIndex, outPath);
+  }
+  console.warn("Wrote plain-shell fallback files for every route so rewrites still resolve.");
+}
+
 run().catch((err) => {
   console.warn("=== PRERENDER SKIPPED — build continues with the plain client-rendered output ===");
   console.warn(err?.stack || err);
+  writePlainFallback();
   process.exit(0);
 });
