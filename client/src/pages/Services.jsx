@@ -13,7 +13,7 @@ const Services = () => {
   return (
     <>
   <Helmet>
-  <title>Services | Revol Digital</title>
+  <title>Website Development & SEO Services | Revol Digital</title>
 
   <meta
     name="description"
@@ -29,7 +29,7 @@ const Services = () => {
 
   <meta
     property="og:title"
-    content="Services | Revol Digital"
+    content="Website Development & SEO Services | Revol Digital"
   />
 
   <meta
