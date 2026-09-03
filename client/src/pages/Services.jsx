@@ -17,7 +17,7 @@ const Services = () => {
 
   <meta
     name="description"
-    content="Professional website development services including React websites, business websites, landing pages, UI/UX design, SEO optimization, website redesign and maintenance."
+    content="Website development services from Revol Digital: custom React sites, business websites, landing pages, UI/UX design, SEO optimization and redesign."
   />
 
   <meta name="robots" content="index, follow" />

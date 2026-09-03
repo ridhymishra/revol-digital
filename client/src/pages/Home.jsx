@@ -77,7 +77,7 @@ export default function Home() {
         <title>Revol Digital | React Website Developer & SEO Expert</title>
         <meta
           name="description"
-          content="Revol Digital builds fast, SEO-optimized React websites for businesses, startups and professionals. Custom web development, responsive design and performance-focused solutions."
+          content="Revol Digital builds fast, SEO-optimized React websites for businesses and startups: custom development, responsive design, real performance focus."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://revoldigital.com/" />

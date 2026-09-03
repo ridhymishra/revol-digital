@@ -14,7 +14,7 @@ const PortfolioPage = () => {
 
       <meta
         name="description"
-        content="Explore website development projects by Revol Digital including business websites, landing pages, portfolio websites and modern web applications built with React."
+        content="Explore website development projects by Revol Digital: business sites, landing pages, portfolios and modern web apps built with React."
       />
 
       <meta name="robots" content="index, follow" />
