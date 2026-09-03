@@ -47,22 +47,46 @@ async function scrollThroughPage(page) {
   await page.waitForTimeout(400);
 }
 
-async function run() {
-  // No --with-deps: that shells out to apt-get, which needs root and isn't
-  // available on most CI/build hosts (that's what broke the first attempt
-  // of this on Vercel). Just the browser binary — if the host is missing a
-  // shared library Chromium needs to launch, the outer try/catch in main()
-  // below catches that too and degrades gracefully.
+async function launchBrowser() {
+  // Vercel's build host (like AWS Lambda, which it's built on) is missing
+  // the shared libraries (libnss3, libnspr4, etc.) a normal downloaded
+  // Chromium binary needs to launch, and there's no root to apt-get them in
+  // (confirmed: that's what broke the first attempt at this, which used
+  // `playwright install chromium --with-deps`). @sparticuz/chromium ships a
+  // Chromium build specifically compiled to run without those libraries on
+  // exactly this kind of constrained Linux host, which a normal `playwright
+  // install chromium` download does not provide on its own.
+  //
+  // Locally (Windows/Mac dev), that Linux-only binary doesn't apply, so use
+  // a normal Playwright-downloaded Chromium instead — same as before.
+  const isConstrainedLinuxHost = process.env.VERCEL === "1" || process.env.CI === "true";
+
+  if (isConstrainedLinuxHost) {
+    const [{ chromium }, sparticuzChromium] = await Promise.all([
+      import("playwright-core"),
+      import("@sparticuz/chromium").then((m) => m.default),
+    ]);
+    const executablePath = await sparticuzChromium.executablePath();
+    console.log("Launching @sparticuz/chromium at", executablePath);
+    return chromium.launch({
+      executablePath,
+      args: sparticuzChromium.args,
+      headless: true,
+    });
+  }
+
   execSync("npx --yes playwright install chromium", { stdio: "inherit" });
-
   const { chromium } = await import("playwright");
+  return chromium.launch({ args: ["--no-sandbox"] });
+}
 
+async function run() {
   const server = await preview({
     preview: { port: 4174, strictPort: true },
   });
   const base = `http://localhost:4174`;
 
-  const browser = await chromium.launch({ args: ["--no-sandbox"] });
+  const browser = await launchBrowser();
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
 
   // Capture every route into memory FIRST, then write to disk only once all
@@ -97,6 +121,7 @@ async function run() {
 }
 
 run().catch((err) => {
-  console.warn("Prerender skipped (build continues with the plain client-rendered output):", err?.message || err);
+  console.warn("=== PRERENDER SKIPPED — build continues with the plain client-rendered output ===");
+  console.warn(err?.stack || err);
   process.exit(0);
 });
