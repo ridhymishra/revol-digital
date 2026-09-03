@@ -1,20 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/services",
-      "destination": "/services/index.html"
-    },
-    {
-      "source": "/services/:slug",
-      "destination": "/services/:slug/index.html"
-    },
-    {
-      "source": "/portfolio",
-      "destination": "/portfolio/index.html"
-    },
-    {
-      "source": "/contact",
-      "destination": "/contact/index.html"
+      "source": "/((?!assets/).*)",
+      "destination": "/index.html"
     }
   ]
 }
