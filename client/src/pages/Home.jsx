@@ -74,14 +74,14 @@ export default function Home() {
     <main className="bg-black text-white overflow-hidden">
 
       <Helmet>
-        <title>Revol Digital | React Website Development Company</title>
+        <title>Revol Digital | Digital Marketing & Web Development Agency</title>
         <meta
           name="description"
           content="Revol Digital builds fast, SEO-optimized React websites for businesses and startups: custom development, responsive design, real performance focus."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://revoldigital.com/" />
-        <meta property="og:title" content="Revol Digital | React Website Development Company" />
+        <meta property="og:title" content="Revol Digital | Digital Marketing & Web Development Agency" />
         <meta property="og:description" content="Fast, responsive and SEO-optimized websites using React & Node.js." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://revoldigital.com" />
@@ -89,7 +89,7 @@ export default function Home() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "Revol Digital | React Website Development Company",
+            name: "Revol Digital | Digital Marketing & Web Development Agency",
             url: "https://revoldigital.com/",
             isPartOf: { "@type": "WebSite", name: "Revol Digital", url: "https://revoldigital.com" },
           })}
