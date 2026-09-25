@@ -138,8 +138,11 @@ export default function ContactPage() {
 
       </div>
 
-      {/* Right Side Developer Window */}
-      <div className="relative">
+      {/* Right Side Developer Window — desktop only. The typing animation is
+          skipped below lg for performance, which left this showing empty
+          quotes ( const client = "" ) on mobile/tablet instead of gracefully
+          hiding, and pushed the actual contact form further down the page. */}
+      <div className="relative hidden lg:block">
 
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />

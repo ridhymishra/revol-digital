@@ -8,6 +8,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import SmoothScroll from "./components/SmoothScroll";
 import ScrollProgress from "./components/ScrollProgress";
 import PageLoader from "./components/PageLoader";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const Home = lazy(() => import("./pages/Home"));
 const ServicesPreview = lazy(() => import("./pages/ServicesPreview"));
@@ -119,6 +120,8 @@ export default function App() {
         <Suspense fallback={<PageLoader />}>
           <AnimatedRoutes />
         </Suspense>
+
+        <WhatsAppButton />
 
       </div>
     </Router>
