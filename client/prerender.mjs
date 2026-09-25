@@ -17,18 +17,22 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { preview } from "vite";
 import { SERVICES } from "./src/data/services.js";
+import { POSTS } from "./src/data/blog.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, "dist");
 
-// Service page routes are derived from the same data file the app itself
-// renders from, so this list can't drift out of sync with what actually exists.
+// Service/blog page routes are derived from the same data files the app
+// itself renders from, so this list can't drift out of sync with what
+// actually exists.
 const ROUTES = [
   "/",
   "/services",
   "/portfolio",
   "/contact",
+  "/blog",
   ...SERVICES.map((s) => `/services/${s.slug}`),
+  ...POSTS.map((p) => `/blog/${p.slug}`),
 ];
 
 function outPathFor(route) {

@@ -23,6 +23,8 @@ const Services = lazy(() => import("./pages/Services"));
 const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
+const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
 
 function PageTransition({ children }) {
   const shouldReduceMotion = useReducedMotion();
@@ -80,6 +82,23 @@ function AnimatedRoutes() {
           element={
             <PageTransition>
               <ServiceDetailPage />
+            </PageTransition>
+          }
+        />
+        {/* BLOG */}
+        <Route
+          path="/blog"
+          element={
+            <PageTransition>
+              <BlogPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/blog/:slug"
+          element={
+            <PageTransition>
+              <BlogPostPage />
             </PageTransition>
           }
         />
